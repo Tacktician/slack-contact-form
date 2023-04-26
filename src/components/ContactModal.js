@@ -29,7 +29,7 @@ const ContactModal = () => {
         e.preventDefault();
         const checkbox = document.getElementById('agree-to-terms');
         if (checkbox.checked) {
-            const response = await fetch('https://<YOUR_PLACEHOLDER_URL>/send-invite', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/send-invite`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
