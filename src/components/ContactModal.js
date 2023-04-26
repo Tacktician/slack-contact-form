@@ -42,18 +42,22 @@ const ContactModal = () => {
         const nameError = validateName(name);
         const emailError = validateEmail(email);
         if (!nameError && !emailError && agreeToTerms) {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/send-invite`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({real_name: name, email}),
-            });
-
-            if (response.ok) {
-                console.log('message sent');
-            } else {
-                console.log('error sending request');
+            try {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/send-invite`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({real_name: name, email}),
+                });
+                if (response.ok) {
+                    console.log('message sent');
+                } else {
+                    console.log('error sending request');
+                }
+            } catch (error) {
+                console.log(error);
+                alert('An error occurred while sending the request. Please try again later.');
             }
         } else {
             alert('Please fix the errors in the form and agree to the terms of the code of conduct');
