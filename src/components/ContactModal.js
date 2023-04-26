@@ -19,16 +19,17 @@ const ContactModal = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [modalIsOpen, setIsOpen] = useState(false);
+    const [agreeToTerms, setAgreeToTerms] = useState(false); // added state variable
 
     const handleOpenModal = () => setIsOpen(true);
     const handleCloseModal = () => setIsOpen(false);
     const handleNameChange = (event) => setName(event.target.value);
     const handleEmailChange = (event) => setEmail(event.target.value);
+    const handleCheckboxChange = (event) => setAgreeToTerms(event.target.checked); // added checkbox handler
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const checkbox = document.getElementById('agree-to-terms');
-        if (checkbox.checked) {
+        if (agreeToTerms) {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/send-invite`, {
                 method: 'POST',
                 headers: {
@@ -110,7 +111,7 @@ const ContactModal = () => {
                         <label htmlFor="email">Email:</label>
                         <input type="email" id="email" value={email} onChange={handleEmailChange} required /><br /><br />
                         <div className="submit-row">
-                            <input type="checkbox" id="agree-to-terms" required />
+                            <input type="checkbox" id="agree-to-terms" checked={agreeToTerms} onChange={handleCheckboxChange} required />
                             <label htmlFor="agree-to-terms">I agree to the terms of the code of conduct</label><br /><br />
                             <input type="submit" value="Submit" onClick={handleSubmit} />
                         </div>
