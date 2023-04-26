@@ -20,16 +20,28 @@ const ContactModal = () => {
     const [email, setEmail] = useState('');
     const [modalIsOpen, setIsOpen] = useState(false);
     const [agreeToTerms, setAgreeToTerms] = useState(false); // added state variable
+    const [nameError, setNameError] = useState(''); // added name input validation
+    const [emailError, setEmailError] = useState(''); //added email input validation
 
     const handleOpenModal = () => setIsOpen(true);
     const handleCloseModal = () => setIsOpen(false);
-    const handleNameChange = (event) => setName(event.target.value);
-    const handleEmailChange = (event) => setEmail(event.target.value);
+    const handleNameChange = (event) => {
+        const value = event.target.value;
+        setName(value);
+        setNameError(validateName(value));
+    };
+    const handleEmailChange = (event) => {
+        const value = event.target.value;
+        setEmail(value);
+        setEmailError(validateEmail(value));
+    };
     const handleCheckboxChange = (event) => setAgreeToTerms(event.target.checked); // added checkbox handler
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (agreeToTerms) {
+        const nameError = validateName(name);
+        const emailError = validateEmail(email);
+        if (!nameError && !emailError && agreeToTerms) {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/send-invite`, {
                 method: 'POST',
                 headers: {
@@ -37,16 +49,43 @@ const ContactModal = () => {
                 },
                 body: JSON.stringify({real_name: name, email}),
             });
+
             if (response.ok) {
-                // handle success
                 console.log('message sent');
             } else {
-                // handle error
                 console.log('error sending request');
             }
         } else {
-            alert('Please agree to the terms of the code of conduct');
+            alert('Please fix the errors in the form and agree to the terms of the code of conduct');
         }
+    };
+
+    const validateName = (value) => {
+        if (!value) {
+            return 'Name is required';
+        }
+
+        const regex = /^[a-zA-Z\s\-]*$/;
+
+        if (!regex.test(value)) {
+            return 'Name can only contain letters, spaces, and hyphens';
+        }
+
+        return '';
+    };
+
+    const validateEmail = (value) => {
+        if (!value) {
+            return 'Email is required';
+        }
+
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!regex.test(value)) {
+            return 'Email is not valid';
+        }
+
+        return '';
     };
 
     return (
@@ -107,9 +146,11 @@ const ContactModal = () => {
                 <h2>Contact Form</h2>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" value={name} onChange={handleNameChange} required /><br /><br />
+                        <input type="text" id="name" value={name} onChange={handleNameChange} required /><br />
+                        {nameError && <span className="name-error">{nameError}</span>}<br /><br />
                         <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" value={email} onChange={handleEmailChange} required /><br /><br />
+                        <input type="email" id="email" value={email} onChange={handleEmailChange} required /><br />
+                        {emailError && <span className="email-error">{emailError}</span>}<br /><br />
                         <div className="submit-row">
                             <input type="checkbox" id="agree-to-terms" checked={agreeToTerms} onChange={handleCheckboxChange} required />
                             <label htmlFor="agree-to-terms">I agree to the terms of the code of conduct</label><br /><br />
