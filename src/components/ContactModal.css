@@ -25,8 +25,91 @@ button:hover {
     vertical-align: middle;
 }
 
-.contact-modal {
-    background-color: #fff;
+.contact-modal .row {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    max-width: 800px;
+}
+
+.contact-modal .column .modal-text {
+    flex: 1;
     padding: 20px;
 }
 
+.contact-modal .column .modal-form {
+    flex: 2;
+    padding: 20px;
+}
+
+.contact-modal .modal-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-modal .modal-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.contact-modal .modal-form input[type="text"],
+.contact-modal .modal-form input[type="email"] {
+    border-radius: 4px;
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contact-modal .modal-form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.contact-modal .modal-form .submit-row {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-modal .modal-form .submit-row input[type="submit"] {
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4a154b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-modal .modal-form .submit-row input[type="submit"]:hover {
+    background-color: #5c1e5c;
+}
+
+.modal-text {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+@media (max-width: 768px) {
+    .contact-modal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-modal .modal-text,
+    .contact-modal .modal-form {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+}
