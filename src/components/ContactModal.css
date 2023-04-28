@@ -1,115 +1,81 @@
 button {
-    display: inline-block;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    background-color: #4a154b;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4a154b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #5c1e5c;
+  background-color: #5c1e5c;
+}
+
+input[type='submit'] {
+  border: 1px solid rgb(19, 35, 34);
+  font-family: AeonikFono;
+  font-weight: 400;
+  font-size: 16px;
+  text-shadow: none;
+  line-height: 20px;
+  background-color: rgb(19, 35, 34);
+  background-image: none;
+  border-radius: 25px !important;
+  color: rgb(255, 255, 255);
+}
+
+input[type='submit']:hover {
+  background-color: rgb(255, 205, 72);
+  background-image: none;
+  color: rgb(19, 35, 34);
+}
+
+input[type='text'],
+input[type='email'] {
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  /* width: 100% !important; */
+  padding: 16px !important;
 }
 
 .slack-logo {
-    width: 40px;
-    height: 40px;
-    margin-left: -10%;
-    vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  margin-left: -10%;
+  vertical-align: middle;
 }
 
-.contact-modal .row {
-    top: 50%;
-    left: 50%;
-    right: auto;
-    bottom: auto;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    width: 80%;
-    max-width: 800px;
+.modal-container {
+  display: flex;
+  background-color: var(--yellow-200);
 }
 
-.contact-modal .column .modal-text {
-    flex: 1;
-    padding: 20px;
-}
-
-.contact-modal .column .modal-form {
-    flex: 2;
-    padding: 20px;
-}
-
-.contact-modal .modal-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-modal .modal-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-.contact-modal .modal-form input[type="text"],
-.contact-modal .modal-form input[type="email"] {
-    border-radius: 4px;
-    border: 1px solid #d3d3d3;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.contact-modal .modal-form input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-.contact-modal .modal-form .submit-row {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.contact-modal .modal-form .submit-row input[type="submit"] {
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4a154b;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.contact-modal .modal-form .submit-row input[type="submit"]:hover {
-    background-color: #5c1e5c;
+.modal-form {
+  padding: 3rem;
 }
 
 .modal-text {
-    padding: 20px;
-    max-height: 400px;
-    overflow-y: scroll;
+  padding: 3rem;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 
 @media (max-width: 768px) {
-    .contact-modal {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-modal .modal-text,
-    .contact-modal .modal-form {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 20px;
-    }
+  .modal-container {
+    display: block;
+  }
 }

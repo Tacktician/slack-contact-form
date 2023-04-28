@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'Aeonik';
+  src: local('Aeonik'), url(./fonts/Aeonik-Regular.woff2) format('woff2');
+}
+
+body {
+  font-family: 'Aeonik', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+:root {
+  --dark-500: #132322;
+  --dark-400: #434e4e;
+  --dark-300: #727a7a;
+  --dark-200: #a1a7a7;
+  --dark-100: #d0d3d3;
+
+  --yellow-500: #ffcd48;
+  --yellow-400: #ffd76d;
+  --yellow-300: #ffe391;
+  --yellow-200: #ffebb6;
+  --yellow-100: #fff5da;
+
+  --coral-500: #ee805a;
+  --coral-400: #f1997b;
+  --coral-300: #f5b39c;
+  --coral-200: #f8ccbd;
+  --coral-100: #fce6de;
+
+  --green-500: #3ddc91;
+  --green-400: #64e3a7;
+  --green-300: #8beabd;
+  --green-200: #b1f1d3;
+  --green-100: #d8f8e9;
+
+  --neutral-300: #deeeea;
+  --neutral-200: #edf7f5;
+  --neutral-100: #f9f9f7;
+
+  --inline-link: #18583a;
+  --primary-button: #66de91;
+}
