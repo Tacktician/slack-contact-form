@@ -165,13 +165,13 @@ const ContactModal = () => {
             <h2>When Problems Arise</h2>
             <p>
               Instances of abusive, harassing, or otherwise unacceptable behavior by community members should be
-              reported by contacting the Sauce Labs Community Team at{' '}
+              reported by contacting the Sauce Labs Community Team at {' '}
               <a className='link' href='mailto:community-hub@saucelabs.com'>
                 community-hub@saucelabs.com
               </a>
               , or by sending a message in the Sauce Squad Slack using the `/report` command. If your report concerns a
               Sauce Labs staff member, <i>including</i> members of the Community Team, you may instead contact Sauce
-              Labs HR at{' '}
+              Labs HR at {' '}
               <a className='link' href='mailto:hr@saucelabs.com'>
                 hr@saucelabs.com
               </a>
@@ -189,14 +189,14 @@ const ContactModal = () => {
             <p></p>
             <h2>Attribution</h2>
             <p>
-              This Code of Conduct is adapted from the
+              This Code of Conduct is adapted from the&nbsp;
               <a
                 className='link'
                 href='https://www.google.com/url?q=https://www.contributor-covenant.org/&amp;sa=D&amp;source=editors&amp;ust=1682531362995161&amp;usg=AOvVaw0SH3hmwNqhComtTzosaOlh'
               >
                 Contributor Covenant
               </a>
-              , version 1.4, available at
+              , version 1.4, available at&nbsp;
               <a
                 className='link'
                 href='https://www.google.com/url?q=https://www.contributor-covenant.org/version/1/4/code-of-conduct.html&amp;sa=D&amp;source=editors&amp;ust=1682531362995459&amp;usg=AOvVaw1QhnIUBGVWd2uF53NbU8Gv'
@@ -205,14 +205,14 @@ const ContactModal = () => {
               </a>
             </p>
             <p>
-              For answers to common questions about this code of conduct, see
+              For answers to common questions about this code of conduct, see&nbsp;
               <a
                 className='link'
                 href='https://www.google.com/url?q=https://www.contributor-covenant.org/faq&amp;sa=D&amp;source=editors&amp;ust=1682531362995802&amp;usg=AOvVaw2nSl_K1ZY7BV_1nUJFNd6g'
               >
                 https://www.contributor-covenant.org/faq
               </a>
-              &nbsp;or contact the Sauce Labs Community at
+              &nbsp;or contact the Sauce Labs Community at&nbsp;
               <a className='link' href='mailto:community-hub@saucelabs.com'>
                 community-hub@saucelabs.com
               </a>
